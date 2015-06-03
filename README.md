@@ -14,7 +14,7 @@ A simple usage example:
       String name = 'one.dart';
       getScript(Uri.parse(name));
     }
-Returns a Future\<ScriptElement\>
+Returns a `Future\<ScriptElement\>`
 If the script is already loaded, getScript() will not attempt to load it
 again, so it can be safely used multiple times without triggering superfluous
 requests.
