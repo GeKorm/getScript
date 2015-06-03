@@ -1,11 +1,14 @@
-// Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
+// Copyright (c) 2015, George Kormaris. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 /// The getScript library.
+/// Loads a script with DOM access, if not already loaded.
 ///
-/// This is an awesome library. More dartdocs go here.
-library getScript;
+/// Usage:
+///      String name = 'one.dart';
+///      getScript(Uri.parse(name));
+///
 
-// TODO: Export any libraries intended for clients of this package.
+library getScript;
 
 export 'src/getScript_base.dart';
