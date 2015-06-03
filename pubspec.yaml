@@ -1,0 +1,9 @@
+name: getScript
+description: A starting point for Dart libraries or applications.
+version: 0.0.1
+#author: George Kormaris mail@gekorm.com
+#homepage: https://www.github.com/GeKorm/getScript
+environment:
+  sdk: '>=1.8.0 <2.0.0'
+dev_dependencies:
+  browser: "^0.10.0+2"
