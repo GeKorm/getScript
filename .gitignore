@@ -3,7 +3,6 @@
 .idea
 .pub/
 build/
-web/
 test/
 example/
 packages
