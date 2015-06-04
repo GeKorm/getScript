@@ -1,13 +1,14 @@
 // Copyright (c) 2015, George Kormaris. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
-library getScript.base;
+library getscript.base;
 
 import 'dart:html';
 import 'dart:async';
 
 /// Loads a script with DOM access, if not already loaded.
 ///
+/// Returns a Future<ScriptElement>
 /// Usage:
 ///      String name = 'one.dart';
 ///      getScript(Uri.parse(name));

@@ -9,6 +9,6 @@
 ///      getScript(Uri.parse(name));
 ///
 
-library getScript;
+library getscript;
 
-export 'src/getScript_base.dart';
+export 'src/getscript_base.dart';
