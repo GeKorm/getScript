@@ -26,7 +26,7 @@ Future getScript(Uri uri) async {
     if (location.endsWith('.dart')) {
       location += '.js';
     } else {
-      throw new ArgumentError('$location does not point to a .dart file');
+      return new ArgumentError('$location does not point to a .dart file');
     }
     // See if it already exists
     var allScripts = querySelectorAll('script');

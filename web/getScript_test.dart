@@ -33,6 +33,7 @@ initTests() async {
   await testReturnedFutureLoaded();
   await testDomAccess();
   await testReturnedFutureExists();
+  await testErrorNotDartScript();
 }
 
 testDomAccess() async {
@@ -59,16 +60,6 @@ testReturnedFutureLoaded() async {
   //print((await result).toString());
   //return await result;
   print(expect((await result) is ScriptElement, name));
-  print(expect(!((await result) is Future), name));
-}
-
-testErrorNotFound() async {
-  String name = 'Test script not found error';
-  var result = getScript(Uri.parse('two_test.dart'));
-  //print(result.toString());
-  //print((await result).toString());
-  //return await result;
-  print(expect((await result) is Error, name));
   print(expect(!((await result) is Future), name));
 }
 
