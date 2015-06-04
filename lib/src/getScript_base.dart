@@ -19,9 +19,16 @@ import 'dart:async';
    3) It exists in the DOM and has loaded.
  */
 Future getScript(Uri uri) async {
+  // Running in Javascript
   if (identical(1, 1.0)) {
-    // Running in Javascript
-    String location = uri.toString() + '.js';
+    String location = uri.toString();
+    // Script must be a dart file
+    if (location.endsWith('.dart')) {
+      location += '.js';
+    } else {
+      throw new ArgumentError('$location does not point to a .dart file');
+    }
+    // See if it already exists
     var allScripts = querySelectorAll('script');
     for (var script in allScripts) {
       // 2) or 3)
@@ -34,6 +41,8 @@ Future getScript(Uri uri) async {
           return await script.onLoad.first.then((e) {
             script.setAttribute('loaded', 'true');
             return script;
+          }).catchError((e) {
+            return e;
           });
         }
       }
@@ -46,12 +55,10 @@ Future getScript(Uri uri) async {
     return await script.onLoad.first.then((e) {
       script.setAttribute('loaded', 'true');
       return script;
+    }).catchError((e) {
+      return e;
     });
   } else {
     return spawnDomUri(uri, [], '');
   }
-}
-
-onError(Event e) {
-  print("error: $e");
 }
