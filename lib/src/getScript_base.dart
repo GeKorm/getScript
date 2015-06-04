@@ -26,7 +26,7 @@ Future getScript(Uri uri) async {
     if (location.endsWith('.dart')) {
       location += '.js';
     } else {
-      throw new ArgumentError('$location does not point to a .dart file');
+      return new ArgumentError('$location does not point to a .dart file');
     }
     // See if it already exists
     var allScripts = querySelectorAll('script');
@@ -41,6 +41,8 @@ Future getScript(Uri uri) async {
           return await script.onLoad.first.then((e) {
             script.setAttribute('loaded', 'true');
             return script;
+          }).catchError((e) {
+            return e;
           });
         }
       }
@@ -53,6 +55,8 @@ Future getScript(Uri uri) async {
     return await script.onLoad.first.then((e) {
       script.setAttribute('loaded', 'true');
       return script;
+    }).catchError((e) {
+      return e;
     });
   } else {
     return spawnDomUri(uri, [], '');
