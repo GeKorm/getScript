@@ -8,7 +8,7 @@ the code of other modules.
 
 A simple usage example:
 
-    import 'package:getScript/getScript.dart';
+    import 'package:getscript/getscript.dart';
 
     main() {
       String name = 'one.dart';
