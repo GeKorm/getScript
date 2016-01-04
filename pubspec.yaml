@@ -1,6 +1,6 @@
 name: getscript
 description: Dynamic code loading for dart scripts
-version: 0.1.0
+version: 0.1.1
 author: George Kormaris <mail@gekorm.com>
 homepage: https://www.github.com/GeKorm/getScript
 environment:

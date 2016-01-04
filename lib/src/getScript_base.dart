@@ -31,21 +31,23 @@ Future getScript(Uri uri) async {
       return new ArgumentError('$location does not point to a .dart file');
     }
     // See if it already exists
-    var allScripts = querySelectorAll('script');
-    for (var script in allScripts) {
+    ElementList allScripts = querySelectorAll('script');
+    for (ScriptElement script in allScripts) {
       // 2) or 3)
-      if (script.getAttribute('src').contains(location)) {
-        //3)
-        if (script.getAttribute('loaded') == 'true') {
-          return script;
-        } else {
-          // 2)
-          return await script.onLoad.first.then((e) {
-            script.setAttribute('loaded', 'true');
+      if (script.getAttribute('src') != null) {
+        if (script.getAttribute('src').contains(location)) {
+          //3)
+          if (script.getAttribute('loaded') == 'true') {
             return script;
-          }).catchError((e) {
-            return e;
-          });
+          } else {
+            // 2)
+            return await script.onLoad.first.then((e) {
+              script.setAttribute('loaded', 'true');
+              return script;
+            }).catchError((e) {
+              return e;
+            });
+          }
         }
       }
     }

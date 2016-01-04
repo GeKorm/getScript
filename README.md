@@ -26,6 +26,7 @@ when running in Javascript.
 As a workaround during development in Dartium, you can dispatch a custom 
 DOM event from the module and listen for it in the main script.
 
+
 Please file feature requests and bugs at the [issue tracker][tracker].
 
 [tracker]: https://www.github.com/GeKorm/getScript/issues
