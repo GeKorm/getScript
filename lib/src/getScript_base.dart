@@ -9,7 +9,7 @@ import 'dart:async';
 
 /// Loads a script with DOM access, if not already loaded.
 ///
-/// Returns a Future<ScriptElement>
+/// Returns a `Future<ScriptElement>`
 /// Usage:
 ///      String name = 'one.dart';
 ///      getScript(Uri.parse(name));
